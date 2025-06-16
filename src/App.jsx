@@ -1,6 +1,19 @@
 import { useState } from "react";
 import { fetchGeoCoordinates, fetchWeather } from "./api/weather";
+import CloudyDayIcon from "./assets/icons/cloudy-day.svg?react";
+import CloudyIcon from "./assets/icons/cloudy.svg?react";
+import ClearDayIcon from "./assets/icons/clear-day.svg?react";
+import CloudyWithRain from "./assets/icons/cloudy-with-rain.svg?react";
+// import CloudyDayIcon from "./assets/icons/cloudy-day.svg";
 import "./App.css";
+
+const weatherIconsMap = {
+  пасмурно: <CloudyIcon className="weather__icon" />,
+  "облачно с прояснениями": <CloudyDayIcon className="weather__icon" />,
+  "небольшая облачность": <CloudyDayIcon className="weather__icon" />,
+  ясно: <ClearDayIcon className="weather__icon" />,
+  дождь: <CloudyWithRain className="weather__icon" />,
+};
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -32,7 +45,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="container">
       <form className="form" onSubmit={onSubmit}>
         <label className="form__city-label">
           <span>Город:</span>
@@ -51,16 +64,26 @@ function App() {
           ) : (
             <>
               <h2 className="weather__city-name">{weather.cityName}</h2>
-              <div className="weather__temp">{weather.temp}</div>
-              <div className="weather__feels-like">
-                Ощущается как {weather.feelsLike}
+              <div className="weather__temp">
+                {weather.temp}
+                <div className="weather__feels-like">
+                  Ощущается как {weather.feelsLike}
+                </div>
               </div>
-              <div className="weather__description">{weather.description}</div>
+              <div className="weather__description">
+                {weather.description}
+                {weatherIconsMap[weather.description]}
+                {/* <img
+                  className="weather__icon"
+                  src={CloudyDayIcon}
+                  alt="иконка погоды"
+                /> */}
+              </div>
             </>
           )}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
