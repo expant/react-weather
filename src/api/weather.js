@@ -1,3 +1,5 @@
+import { formatTemperature } from "../utils/helpers";
+
 const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
 export const fetchGeoCoordinates = async (cityName) => {
@@ -18,20 +20,9 @@ export const fetchWeather = async (lat, lon) => {
   const response = await fetch(url);
   const data = await response.json();
 
-  let temp = Math.round(data.main.temp);
-  let feelsLike = Math.round(data.main.feels_like);
-
-  if (temp > 0) {
-    temp = `+${temp}°`;
-    feelsLike = `+${feelsLike}°`;
-  } else {
-    temp = `${temp}°`;
-    feelsLike = `${feelsLike}°`;
-  }
-
   return {
-    temp,
-    feelsLike,
+    temp: formatTemperature(data.main.temp),
+    feelsLike: formatTemperature(data.main.feels_like),
     cityName: data.name,
     description: data.weather[0].description,
   };
