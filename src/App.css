@@ -1,0 +1,47 @@
+#root {
+  display: flex;
+  gap: 5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.form,
+.form__city-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  gap: 2rem;
+}
+
+.form__city-label {
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.form__city {
+  font-size: 19px;
+  padding: 5px;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+}
+
+.weather__city-name {
+  font-size: 30px;
+}
+
+.weather__temp {
+  font-size: 40px;
+  font-weight: bold;
+}
