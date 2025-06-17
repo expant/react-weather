@@ -1,0 +1,39 @@
+.weather {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  min-height: 235px;
+  padding: 25px 25px 20px 20px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+}
+
+.weather__city-name {
+  font-size: 30px;
+}
+
+.weather__temp {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.weather__feels-like {
+  font-size: 14px;
+  font-weight: 600;
+  color: #9e9e9e;
+}
+
+.weather__description::first-letter {
+  text-transform: uppercase;
+}
+
+.weather__icon {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 124px;
+  height: 124px;
+}

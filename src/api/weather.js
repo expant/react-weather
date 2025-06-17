@@ -1,4 +1,4 @@
-import { formatTemperature } from "../utils/helpers";
+import { formatTemperature } from "../utils/weather-utils";
 
 const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
