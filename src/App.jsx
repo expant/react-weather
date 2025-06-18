@@ -25,19 +25,14 @@ function App() {
     }
   };
 
+  const backgroundGradient =
+    getWeatherUi(weather?.description)?.gradientClassName || "sunny";
+
   return (
-    <div
-      className={`bg-wrap ${
-        getWeatherUi(weather?.description).gradientClassName || "sunny"
-      }`}
-    >
+    <div className={`bg-wrap ${backgroundGradient}`}>
       <div className="container">
         <Search handleWeatherSearch={handleWeatherSearch} loading={loading} />
-        {error ? (
-          <div className="error">{error}</div>
-        ) : (
-          <Weather weather={weather} />
-        )}
+        <Weather weather={weather} error={error} />
       </div>
     </div>
   );

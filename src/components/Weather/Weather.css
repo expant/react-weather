@@ -11,6 +11,17 @@
   color: #ffffff;
 }
 
+.weather__error {
+  color: #ffffff;
+}
+
+.weather__empty,
+.weather__error {
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+}
+
 .weather__city-name {
   font-size: 55px;
 }
