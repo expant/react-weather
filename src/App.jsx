@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fetchGeoCoordinates, fetchWeather } from "./api/weather";
-import { getWeatherClass } from "./utils/weather-utils";
+import { getWeatherUi } from "./utils/weather-utils";
 import Search from "./components/Search/Search";
 import Weather from "./components/Weather/Weather";
 import "./App.css";
@@ -27,7 +27,9 @@ function App() {
 
   return (
     <div
-      className={`bg-wrap ${getWeatherClass(weather?.description) || "sunny"}`}
+      className={`bg-wrap ${
+        getWeatherUi(weather?.description).gradientClassName || "sunny"
+      }`}
     >
       <div className="container">
         <Search handleWeatherSearch={handleWeatherSearch} loading={loading} />

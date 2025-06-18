@@ -3,10 +3,10 @@
   gap: 0.5rem;
 }
 
-.form,
+/* .form,
 .form__city-label {
   width: 100%;
-}
+} */
 
 .form__city-label {
   position: relative;
